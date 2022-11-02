@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "delete middle element from stack": "cpp"
+        "delete middle element from stack": "cpp",
+        "maximum product subarray": "cpp"
     }
 }

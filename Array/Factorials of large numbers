@@ -1,0 +1,19 @@
+  vector<int> factorial(int N){
+        // code here
+       vector<int>answer;
+       answer.push_back(1);
+       for(int x=2;x<=N;x++){
+           int carry=0;
+           for(int i=0;i<answer.size();i++){
+               int value=answer[i]*x+carry;
+               answer[i]=value%10;
+               carry=value/10;
+           }
+           while(carry!=0){
+               answer.push_back(carry%10);
+               carry/=10;
+           }
+       }
+     reverse(answer.begin(),answer.end());
+     return answer;
+    }

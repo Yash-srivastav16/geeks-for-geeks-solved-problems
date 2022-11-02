@@ -1,0 +1,18 @@
+	long long maxProduct(vector<int> arr, int n) {
+	    // code here
+	 long long int product=1,answer=INT_MIN;
+	 for(int i=0;i<n;i++){
+	     product=product*arr[i];
+	     if(product>=answer) answer=product;
+	     if(product==0) product=1;
+	 }
+	 
+	 product=1;
+	 for(int i=n-1;i>=0;i--){
+	     product=product*arr[i];
+	     if(product>=answer) answer=product;
+	     if(product==0) product=1;
+	 }
+	 return answer;
+	 
+	}
