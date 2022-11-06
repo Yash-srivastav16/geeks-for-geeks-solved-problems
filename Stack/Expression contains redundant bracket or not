@@ -1,0 +1,28 @@
+    int checkRedundancy(string s) {
+        // code here
+        stack<char>temp;
+        for(int i=0;i<s.length();i++){
+            char ch=s[i];
+            if(ch=='(' || ch=='+' ||ch=='-' ||ch=='*'|| ch=='/'){
+                temp.push(ch);
+            }
+            else{
+                if(ch==')'){
+                    bool isredundant=true;
+                    while(temp.top()!='('){
+                        char ch=temp.top();
+                        if(ch=='(' || ch=='+' ||ch=='-' ||ch=='*'|| ch=='/'){
+                            isredundant=false;
+                            
+                            
+                        }
+                        temp.pop();
+                    }
+                    if(isredundant==true) return true;
+                    temp.pop();
+                }
+                
+            }
+        }
+        return false;
+    }
