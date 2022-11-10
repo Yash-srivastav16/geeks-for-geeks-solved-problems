@@ -1,0 +1,12 @@
+stack<int>s;
+    s.push(-1);
+    vector<int>answer(n); //required ...
+    for(int i=n-1;i>=0;i--){
+        int curr=arr[i];
+        while(s.top()>=curr){
+            s.pop();
+        }
+        answer[i]=s.top();
+        s.push(curr);
+    }
+    return answer;

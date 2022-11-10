@@ -1,0 +1,53 @@
+vector<long long> nextstep(long long arr[],int n){
+        stack<long long>s;
+        s.push(-1);
+        vector<long long> answer(n);
+        for(int i=n-1;i>=0;i--){
+            int curr=arr[i];
+            while(s.top()!=-1 && arr[s.top()]>=curr) s.pop();
+            
+            answer[i]=s.top();
+            s.push(i);
+            
+        }
+        return answer;
+    }
+    
+    vector<long long> prevstep(long long arr[],int n){
+        stack<long long>s;
+        s.push(-1);
+        vector<long long> answer(n);
+        for(int i=0;i<n;i++){
+            int curr=arr[i];
+            while(s.top()!=-1 && arr[s.top()]>=curr) s.pop();
+            
+            answer[i]=s.top();
+            s.push(i);
+            
+        }
+        return answer;
+    }
+    
+    
+    
+    long long getMaxArea(long long arr[], int n)
+    {
+        // Your code here
+        vector<long long>next(n);
+        next=nextstep(arr,n);
+        vector<long long>prev(n);
+        prev=prevstep(arr,n);
+        long long area=INT_MIN;
+        for(int i=0;i<n;i++){
+            int l=arr[i];
+            if(next[i]==-1){
+                next[i]=n;
+            }
+            
+            long long b=next[i]-prev[i]-1;
+            long long newarea=l*b;
+            area=max(area,newarea);
+            
+        }
+        return area;
+    }
