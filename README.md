@@ -1,2 +1,3 @@
-# Code-Studio-Solved-Problems
- Code-Studio-Solved-Problems
+# geeks-for-geeks-solved-problems
+geeks-for-geeks-solved-problems
+
