@@ -1,0 +1,34 @@
+     deque<long long>dq;
+     vector<long long> answer;
+     //store answer of K sized window
+     for(int i=0;i<K;i++){
+         if(A[i]<0){
+             dq.push_back(i);
+         }
+     }
+     //storing in vector
+     if(dq.size()>0){
+         answer.push_back(A[dq.front()]);
+     }
+     else{
+         answer.push_back(0);
+     }
+     
+     
+     //checking for remaining array
+     for(int i=K;i<N;i++){
+         if(!dq.empty() && i-dq.front()>=K){
+             dq.pop_front();
+         }
+         if(A[i]<0){
+             dq.push_back(i);
+         }
+         if(dq.size()>0){
+         answer.push_back(A[dq.front()]);
+     }
+        else{
+         answer.push_back(0);
+     }
+     }
+     return answer;
+     
